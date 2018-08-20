@@ -16,7 +16,7 @@ resource "aws_security_group_rule" "ingress_chef_server_allow_22_tcp_all" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.chef_server.id}"
 }
 
@@ -26,7 +26,7 @@ resource "aws_security_group_rule" "ingress_chef_server_allow_80_tcp" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.chef_server.id}"
 }
 
@@ -36,7 +36,7 @@ resource "aws_security_group_rule" "ingress_chef_server_allow_443_tcp" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.chef_server.id}"
 }
 
@@ -46,7 +46,7 @@ resource "aws_security_group_rule" "ingress_chef_server_allow_10000-10003_tcp" {
   from_port         = 10000
   to_port           = 10003
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.chef_server.id}"
 }
 
@@ -66,7 +66,7 @@ resource "aws_security_group_rule" "egress_chef_server_allow_0-65535_all" {
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.chef_server.id}"
 }
 
@@ -88,7 +88,7 @@ resource "aws_security_group_rule" "ingress_chef_automate_allow_22_tcp_all" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.chef_automate.id}"
 }
 
@@ -98,7 +98,7 @@ resource "aws_security_group_rule" "ingress_chef_automate_allow_80_tcp" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.chef_automate.id}"
 }
 
@@ -108,7 +108,7 @@ resource "aws_security_group_rule" "ingress_chef_automate_allow_443_tcp" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.chef_automate.id}"
 }
 
@@ -118,7 +118,7 @@ resource "aws_security_group_rule" "ingress_chef_automate_allow_8989_tcp" {
   from_port         = 8989
   to_port           = 8989
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.chef_automate.id}"
 }
 
@@ -152,7 +152,7 @@ resource "aws_security_group_rule" "ingress_chef_automate_allow_5432_tcp" {
   source_security_group_id = "${aws_security_group.chef_automate.id}"
 }
 
-# Allow leaderel connections 
+# Allow leaderel connections
 resource "aws_security_group_rule" "ingress_chef_automate_allow_7331_tcp" {
   type                     = "ingress"
   from_port                = 7331
@@ -178,7 +178,7 @@ resource "aws_security_group_rule" "egress_chef_automate_allow_0-65535_all" {
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.chef_automate.id}"
 }
 
@@ -200,7 +200,7 @@ resource "aws_security_group_rule" "egress_build_nodes_allow_0-65535_all" {
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.build_nodes.id}"
 }
 
@@ -210,7 +210,7 @@ resource "aws_security_group_rule" "ingress_build_nodes_allow_22_tcp_all" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.0.0.0/8"]
   security_group_id = "${aws_security_group.build_nodes.id}"
 }
 
