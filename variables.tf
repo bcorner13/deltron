@@ -1,4 +1,6 @@
-variable "aws_region" {}
+variable "aws_region" {
+  default = "us-east-2"
+}
 
 variable "aws_profile" {
   default = "default"
@@ -21,7 +23,36 @@ variable "automate_vpc" {}
 variable "tag_automate" {
   default = "terraform_automate"
 }
-
+variable "Installer" {
+  default="Bradley Corner"
+}
+variable "Platform"{
+  default="Linux"
+}
+variable "Purpose" {
+  default = "Chef Automate"
+}
+variable "PCI" {
+  default="No"
+}
+variable "Budget" {
+  default="Thomas Stanley"
+}
+variable "Reserved" {
+  default = "No"
+}
+variable "Lifecycle" {
+    default = "PROD1"
+}
+variable "Hold" {
+  default = "Yes"
+}
+variable "Application" {
+  default = "Chef"
+}
+variable "Patch_Group" {
+  default = "Prod1"
+}
 variable "tag_dept" {
   default = "example_department"
 }
