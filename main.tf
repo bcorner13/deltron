@@ -1,5 +1,5 @@
 terraform {
-  required_version = "0.9.9"
+  required_version = "0.11.7"
 }
 
 provider "aws" {
@@ -63,9 +63,19 @@ resource "aws_instance" "chef_server" {
   }
 
   tags {
-    Name      = "${format("${var.tag_automate}_${random_id.automate_instance_id.hex}_chef_server_%02d", count.index + 1)}"
-    X-Dept    = "${var.tag_dept}"
-    X-Contact = "${var.tag_contact}"
+    Name          = "${format("${var.tag_automate}_${random_id.automate_instance_id.hex}_chef_server_%02d", count.index + 1)}"
+    Installer     = "$(var.Installer)"
+    Platform      = "$(var.Platform)"
+    Purpose       = "$(var.Purpose)"
+    PCI           = "$(var.PCI)"
+    Budget        = "$(var.Budget)"
+    Reserved      = "$(var.Reserved)"
+    Lifecycle     = "$(var.Lifecycle)"
+    Hold          = "$(var.Hold)"
+    Application   = "$(var.Application)"
+    "Patch_Group" = "$(var.Patch_Group)"
+    X-Dept        = "${var.tag_dept}"
+    X-Contact     = "${var.tag_contact}"
   }
 
   # Set hostname in separate connection.
@@ -144,9 +154,19 @@ resource "aws_instance" "chef_automate" {
   }
 
   tags {
-    Name      = "${format("${var.tag_automate}_${random_id.automate_instance_id.hex}_chef_automate_%02d", count.index + 1)}"
-    X-Dept    = "${var.tag_dept}"
-    X-Contact = "${var.tag_contact}"
+    Name          = "${format("${var.tag_automate}_${random_id.automate_instance_id.hex}_chef_automate_%02d", count.index + 1)}"
+    Installer     = "$(var.Installer)"
+    Platform      = "$(var.Platform)"
+    Purpose       = "$(var.Purpose)"
+    PCI           = "$(var.PCI)"
+    Budget        = "$(var.Budget)"
+    Reserved      = "$(var.Reserved)"
+    Lifecycle     = "$(var.Lifecycle)"
+    Hold          = "$(var.Hold)"
+    Application   = "$(var.Application)"
+    "Patch_Group" = "$(var.Patch_Group)"
+    X-Dept        = "${var.tag_dept}"
+    X-Contact     = "${var.tag_contact}"
   }
 
   # Set hostname in separate connection.
@@ -224,9 +244,19 @@ resource "aws_instance" "build_nodes" {
   }
 
   tags {
-    Name      = "${format("${var.tag_automate}_build_node_%02d_${random_id.automate_instance_id.hex}", count.index + 1)}"
-    X-Dept    = "${var.tag_dept}"
-    X-Contact = "${var.tag_contact}"
+    Name          = "${format("${var.tag_automate}_build_node_%02d_${random_id.automate_instance_id.hex}", count.index + 1)}"
+    Installer     = "$(var.Installer)"
+    Platform      = "$(var.Platform)"
+    Purpose       = "$(var.Purpose)"
+    PCI           = "$(var.PCI)"
+    Budget        = "$(var.Budget)"
+    Reserved      = "$(var.Reserved)"
+    Lifecycle     = "$(var.Lifecycle)"
+    Hold          = "$(var.Hold)"
+    Application   = "$(var.Application)"
+    "Patch_Group" = "$(var.Patch_Group)"
+    X-Dept        = "${var.tag_dept}"
+    X-Contact     = "${var.tag_contact}"
   }
 
   provisioner "chef" {
